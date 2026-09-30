@@ -1,6 +1,5 @@
 import logging
 import sys
-
 from fastapi import FastAPI
 
 logging.basicConfig(
