@@ -1,0 +1,54 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: lestylo-logs
+  namespace: observability
+  labels:
+    project: lestylo
+    team: lepen-squad
+spec:
+  folderRef: lepen-squad-lestylo
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
+  json: |
+    {
+      "uid": "cnp-lepen-squad-lestylo-logs",
+      "title": "lestylo logs",
+      "schemaVersion": 39,
+      "version": 1,
+      "tags": [
+        "cnp",
+        "loki",
+        "lestylo",
+        "lepen-squad"
+      ],
+      "timezone": "browser",
+      "time": {
+        "from": "now-1h",
+        "to": "now"
+      },
+      "panels": [
+        {
+          "id": 1,
+          "type": "logs",
+          "title": "Pod logs",
+          "datasource": {
+            "type": "loki",
+            "uid": "Loki"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "{team=\"lepen-squad\", project=\"lestylo\"}"
+            }
+          ],
+          "gridPos": {
+            "h": 20,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    }
