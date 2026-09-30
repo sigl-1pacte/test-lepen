@@ -1,0 +1,18 @@
+workload:
+  name: lestylo
+replicaCount: 2
+labels:
+  classification: public
+  environment: dev
+  team: lepen-squad
+  cnp.io/logging: enabled
+  project: lestylo
+service:
+  port: 8000
+  targetPort: 8000
+container:
+  port: 8000
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
