@@ -1,0 +1,13 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: lepen-squad-lestylo
+  namespace: observability
+  labels:
+    project: lestylo
+    team: lepen-squad
+spec:
+  title: "lepen-squad / lestylo"
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
